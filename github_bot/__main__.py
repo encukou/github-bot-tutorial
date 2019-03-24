@@ -31,7 +31,7 @@ async def on_comment_created(
         *,
         action, changes, issue, comment,
         # repository, sender, installation,
-        assignee=None, changes=None,
+        assignee=None,
 ):
     """Whenever an issue comment is added, add reaction."""
     comments_api_url = comment['url']
