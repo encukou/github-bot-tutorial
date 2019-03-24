@@ -22,7 +22,7 @@ async def on_issue_opened(
         f"My human companion will look into it ASAP! (I'm a bot [¤_¤])."
     )
 
-    await github_api.post(url, data={"body": message})
+    await github_api.post(comments_api_url, data={"body": message})
 
 
 if __name__ == "__main__":
