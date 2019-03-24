@@ -34,6 +34,8 @@ async def on_comment_created(
         assignee=None,
 ):
     """Whenever an issue comment is added, add reaction."""
+    github_api = RUNTIME_CONTEXT.app_installation_client
+
     comments_api_url = comment['url']
     reactions_url = comments_api_url + '/reactions'
 
