@@ -1,2 +1,4 @@
-token.txt
-*.pem
+/token.txt
+/*.pem
+/.env
+__pycache__/
