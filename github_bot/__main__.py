@@ -41,7 +41,7 @@ async def on_comment_created(
 
     await github_api.post(
         reactions_url,
-        data={"body": "+1"},
+        data={"content": "+1"},
         preview_api_version='squirrel-girl',
     )
 
