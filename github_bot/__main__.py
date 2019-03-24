@@ -25,6 +25,25 @@ async def on_issue_opened(
     await github_api.post(comments_api_url, data={"body": message})
 
 
+@process_event_actions('issue_comment', {'created'})
+@process_webhook_payload
+async def on_comment_created(
+        *,
+        action, changes, issue, comment,
+        # repository, sender, installation,
+        assignee=None, changes=None,
+):
+    """Whenever an issue comment is added, add reaction."""
+    comments_api_url = comment['url']
+    reactions_url = comments_api_url + '/reactions'
+
+    await github_api.post(
+        reactions_url,
+        data={"body": "+1"},
+        preview_api_version='squirrel-girl-preview',
+    )
+
+
 if __name__ == "__main__":
     run_app(
         name='Comment Reactor - PyCon SK tutorial (@encukou)',
