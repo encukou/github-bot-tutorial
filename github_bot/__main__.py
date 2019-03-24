@@ -29,7 +29,7 @@ async def on_issue_opened(
 @process_webhook_payload
 async def on_comment_created(
         *,
-        action, changes, issue, comment,
+        action, changes=None, issue=None, comment=None,
         repository=None, sender=None, installation=None,
         assignee=None,
 ):
