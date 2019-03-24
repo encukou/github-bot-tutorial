@@ -30,7 +30,7 @@ async def on_issue_opened(
 async def on_comment_created(
         *,
         action, changes, issue, comment,
-        # repository, sender, installation,
+        repository=None, sender=None, installation=None,
         assignee=None,
 ):
     """Whenever an issue comment is added, add reaction."""
